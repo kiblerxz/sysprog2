@@ -1,3 +1,4 @@
+#include "util.h"
 #define _GNU_SOURCE
 #include "processes.h"
 #include <stdio.h>
@@ -22,7 +23,7 @@ int action_processes(void){
         long pid=atol(e->d_name);
         char path[64]; snprintf(path,sizeof(path),"/proc/%ld/comm",pid);
         FILE *f=fopen(path,"r"); if(!f) continue;
-        char *line=NULL; size_t len=0; ssize_t r=getline(&line,&len,f); fclose(f);
+        char *line=NULL; size_t len=0; ssize_t r=my_getline(&line,&len,f); fclose(f);
         if(r<=0){ free(line); continue; } if(line[r-1]=='\n') line[r-1]=0;
         if(n==cap){ cap*=2; arr=realloc(arr,cap*sizeof(*arr)); if(!arr){ fprintf(stderr,"error: oom\n"); closedir(d); return 1; } }
         arr[n].pid=pid; arr[n].name=line; n++;
