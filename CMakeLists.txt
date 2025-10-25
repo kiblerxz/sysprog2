@@ -8,7 +8,7 @@ add_executable(sysutil
      src/main.c
      src/args.c        src/args.h
      src/users.c       src/users.h
-     src/processess.c  src/processes.h
+     src/processes.c  src/processes.h
      src/help.c        src/help.h
      src/io_redirect.c src/io_redirect.h
      src/util.c        src/util.h

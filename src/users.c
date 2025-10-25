@@ -1,3 +1,4 @@
+#include "util.h"
 #define _GNU_SOURCE
 #include "users.h"
 #include <stdio.h>
@@ -14,7 +15,7 @@ int action_users(void){
     size_t cap=64,n=0; user_t *arr=malloc(cap*sizeof(*arr));
     if(!arr){ fclose(f); fprintf(stderr,"error: oom\n"); return 1; }
     char *line=NULL; size_t len=0;
-    while(getline(&line,&len,f)!=-1){
+    while(my_getline(&line,&len,f)!=-1){
         char *save=NULL;
         char *name=strtok_r(line,":\n",&save);
         (void)strtok_r(NULL,":\n",&save);
