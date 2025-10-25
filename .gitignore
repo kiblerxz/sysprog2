@@ -1,0 +1,14 @@
+/build/
+CMakeFiles/
+CMakeCache.txt
+*.dir/
+/*.exe
+*.out
+*.o
+*.obj
+*.a
+*.pdb
+.DS_Store
+Thubs.db
+.vscode/
+.idea/
